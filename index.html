@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/d9876ed7d9.js" crossorigin="anonymous"></script>
+  <title>Landing page</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .btn {
+      position: relative;
+      margin: 8px 0;
+      padding: 10px 17px;
+      font-size: 16px;
+      z-index: 9;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      border: 2px solid rgba(0, 0, 0, 0);
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      color: #FFF;
+      background-color: #08c1b8;
+      border-color: #08c1b8;
+    }
+
+    .btn.secondary {
+      color: #fff;
+      background: transparent;
+      border-color: #fff;
+    }
+
+    .btn.normal {
+      color: #FFF;
+      background-color: #222;
+      border-color: #222;
+    }
+
+    .btn:hover {
+      opacity: 0.6;
+    }
+
+    .hr-short {
+      position: relative;
+      max-width: 45px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: auto;
+      border: 0;
+      border-top: 6px solid #08c1b8;
+      text-align: left;
+    }
+
+    .hr-short.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* animation */
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+
+      66% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+
+      66% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+
+    /* header */
+    #header {}
+
+    #navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      background-color: #fff;
+      z-index: 1000;
+      transition: all 0.4s ease-in-out;
+    }
+
+    #navigation .mobile-menu {
+      display: none;
+    }
+
+    .navigation-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      display: block;
+    }
+
+    .logo a img {
+      max-height: 50px;
+    }
+
+    .nav-list {
+      display: flex;
+    }
+
+    .nav-list .nav-item {
+      margin-left: 10px;
+    }
+
+    .nav-list .nav-item {
+      display: inline-block;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .nav-list .nav-item:hover ul {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-list .nav-item>a {
+      position: relative;
+      display: block;
+      margin: 0;
+      padding: 30px 0;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: #222;
+      -webkit-transition: all 0.1s ease-in-out;
+      -moz-transition: all 0.1s ease-in-out;
+      -o-transition: all 0.1s ease-in-out;
+      -ms-transition: all 0.1s ease-in-out;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .nav-list .nav-item ul {
+      position: absolute;
+      top: 110%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      visibility: hidden;
+      opacity: 0;
+      background-color: rgba(25, 25, 25, 0.95);
+      transition: 0.4s ease;
+    }
+
+    .nav-list .nav-item ul li {
+      margin-bottom: 2px;
+    }
+
+    .nav-list .nav-item ul li {
+      position: relative;
+      display: block;
+      padding: 10px 25px 7px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 19px;
+      color: #888;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .nav-list .nav-item ul li .nav-lít .nav-item i {
+      margin-left: 5px;
+    }
+
+    .nav-list .nav-item>a:after,
+    .nav-list .nav-item ul li:after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #08c1b8;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .nav-list .nav-item>a:hover:after,
+    .nav-list .nav-item ul li:hover:after {
+      width: 100%;
+    }
+
+    #hero {
+      /* calc height = vh - header height */
+      height: calc(100vh - 83px);
+      margin-top: 83px;
+      background: url('images/hero.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-caption {
+      position: absolute;
+      transition: all 0.4s ease-in-out;
+      top: 50%;
+      left: 13%;
+      margin-right: 5%;
+      text-align: left;
+      -moz-transform: translateY(-50%) !important;
+      -ms-transform: translateY(-50%) !important;
+      -webkit-transform: translateY(-50%) !important;
+      transform: translateY(-50%) !important;
+      animation: .5s ease 0s normal forwards 1 fadein;
+      color: white;
+    }
+
+    .hero-caption .hero-title {
+      font-size: 110px;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgb(0 0 0 / 30%);
+    }
+
+    .hero-caption .hero-subtitle {
+      font-size: 28px;
+      text-shadow: 0 0 20px rgb(0 0 0 / 30%);
+
+    }
+
+    .hero-caption .hero-description {
+      margin: 15px auto 0 auto;
+      font-weight: normal;
+      color: #FFF;
+      text-shadow: 0 0 20px rgb(0 0 0 / 50%);
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+    }
+
+    .hero-actions .btn {
+      margin-right: 10px;
+    }
+
+    /* end header */
+
+    /* main */
+
+    /* about */
+    #about {
+      display: flex;
+      flex-flow: wrap;
+    }
+
+    .about-img {
+      background: url('images/about.jpeg');
+      width: 45%;
+      background-position: 50% 50%;
+
+    }
+
+    .about-content {
+      width: 55%;
+      position: relative;
+      padding: 10% 8%;
+      background-image: url('images/bg-pattern-1-light.png');
+      background-position: 50% 50%;
+      background-color: rgba(138, 138, 138, 0.13) !important;
+      background-size: cover;
+    }
+
+    .about-title {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .about-subtitle {
+      margin-top: 5px;
+      font-size: 16px;
+      color: #999;
+    }
+
+    .about-description {
+      margin-bottom: 20px;
+    }
+
+    /* end about */
+
+    /* latest works */
+    .latestWork {
+      padding: 6% 3% 5% 3%;
+      text-align: center;
+    }
+
+    .latest-work-title {
+      font-size: 38px;
+    }
+
+    .latest-work-subtitle {
+      margin-top: 5px;
+      font-size: 16px;
+      color: #999;
+    }
+
+    .latest-work-subtitle a {
+      color: #08c1b8;
+    }
+
+    /* end latest works */
+
+    /* gallery */
+    .gallery-list-item {
+      display: flex;
+      flex-flow: wrap;
+    }
+
+    .gallery-item {
+      width: 25%;
+      background: url('images/gallery-list-1.jpeg');
+      height: 290px;
+      background-size: cover;
+      background-position: 50% 50%;
+      position: relative;
+      transition: 0.4s;
+      overflow: hidden;
+    }
+
+    .gallery-item:nth-child(2) {
+      background: url('images/1.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(3) {
+      background: url('images/2.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(4) {
+      background: url('images/3.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(5) {
+      background: url('images/4.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(6) {
+      background: url('images/5.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(7) {
+      background: url('images/6.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:nth-child(8) {
+      background: url('images/8.jpeg');
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .gallery-item:hover::before {
+      width: 100%;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.07);
+      z-index: 1000;
+    }
+
+    .gallery-item:hover .gallery-item-content {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-item-heart {
+      opacity: 1;
+    }
+
+    .gallery-item::before {
+      background-color: #08c1b8;
+      opacity: .85;
+      content: "";
+      width: 0;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: all .2s ease-in-out;
+      z-index: 1;
+    }
+
+    .gallery-item-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      width: 100%;
+      padding: 20px;
+      transition: 0.4s ease;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0;
+      transition: all .2s ease-in-out;
+    }
+
+    .gallery-item-content h4 {
+      font-size: 22px;
+      white-space: normal;
+      font-weight: 500;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+    }
+
+    .gallery-item-actions {
+      display: flex;
+      justify-content: space-between;
+      color: #EEE;
+    }
+
+    .gallery-item-heart {
+      position: absolute;
+      font-size: 14px;
+      top: 30px;
+      right: 20px;
+      color: #EEE;
+      z-index: 2;
+      opacity: 0;
+      transition: all .2s ease-in-out;
+    }
+
+    .gallery-item-actions i {
+      font-size: 25px;
+    }
+
+    .gallery-item-heart span {
+      margin-left: 5px;
+    }
+
+    /* end gallery */
+
+    /* customer */
+    .customer-description {
+      width: 100%;
+      text-align: center;
+      margin-top: 70px;
+      margin-bottom: 70px;
+    }
+
+    .customer-description p {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .customer-description p a {
+      color: #08c1b8;
+    }
+
+    .customer-hero {
+      background-color: #000;
+      background-image: url('images/misc-4.jpeg');
+      background-position: 50% 50%;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      padding: 6% 0 8% 0;
+    }
+
+    .bg-cover-tranparent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .customer-hero-content {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      z-index: 3;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding: 60px 5%;
+      z-index: 9;
+    }
+
+    .customer-hero-content .customer-image {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-image: url('./images/avatar-3.jpeg');
+      background-position: 50% 50%;
+      margin-bottom: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    .customer-hero-content p {
+      font-style: italic;
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    /* end customer */
+
+    /* blog */
+    .blog-list {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: space-between;
+    }
+
+    .blog-item {
+      width: 32%;
+      transition: .4s ease;
+    }
+
+    .blog-item:hover {
+      transform: scale(1.10);
+    }
+
+    .blog-item-image {
+      height: 300px;
+    }
+
+    .blog-item-image img {
+      object-fit: cover;
+      height: 100%;
+      object-position: center;
+    }
+
+    .blog-item-info {
+      margin: -7% 5% 0 5%;
+      padding: 6% 5% 50px 5%;
+      z-index: 2;
+      position: relative;
+      background: #fff;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+
+    .blog-item-category {
+      margin-right: 90px;
+      margin-bottom: 15px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .blog-item-category a {
+      display: inline-block;
+      background-color: #08c1b8;
+      padding: 2px 5px 0 5px;
+      color: #FFF;
+      margin-bottom: 3px;
+    }
+
+    .blog-item-title {
+      display: block;
+      margin: 15px 0;
+      font-weight: bold;
+      font-size: 22px;
+      color: #333;
+      line-height: 1.3;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .blog-item-title:hover {
+      color: #08c1b8;
+    }
+
+    .blog-item-meta {
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #AAA;
+    }
+
+    .blog-item-desc {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #666;
+    }
+
+    .favorite {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      display: flex;
+    }
+
+    .favorite>div {
+      color: #a7a7a7;
+      margin-right: 10px;
+      font-size: 12px;
+    }
+
+    .favorite>div:hover {
+      color: #08c1b8;
+    }
+
+    /* end blog */
+
+    /* next */
+
+    /* end next */
+    #next {
+      position: relative;
+      padding: 5% 3%;
+      margin-top: 60px;
+      background: url('images/bg-pattern-1-light.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: rgba(138, 138, 138, 0.13);
+    }
+
+    #next .latestWork {
+      padding-bottom: 10px;
+      padding-top: 0;
+    }
+
+
+    .next-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #next .hero-actions {
+      margin-top: 20px;
+    }
+
+    /* end main */
+
+    /* footer */
+    .main-footer {
+      position: relative;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 80px 0;
+      border-top: 1px solid rgba(134, 134, 134, 0.05);
+      background-color: #121212;
+      color: #CCC;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: wrap;
+    }
+
+    .col.logo-wrap {
+      width: 15%;
+    }
+
+    .col.creative {
+      width: 40%;
+      padding-right: 30px;
+      padding-left: 30px;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .col.social {
+      width: 23%;
+      text-align: right;
+    }
+
+    .col.creative h2 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .col.social ul {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .col.social ul li {
+      margin-left: 5px;
+    }
+
+    .col.social ul li a {
+      color: #ddd;
+      background-color: rgba(189, 189, 189, 0.13);
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      line-height: 44px;
+      text-align: center;
+      font-size: 16px;
+      display: block;
+      transition: 0.4s ease-in-out;
+    }
+
+    .col.social ul li a:hover {
+      background-color: rgba(189, 189, 189, 0.35);
+      color: #FFF;
+    }
+
+    .col.social .mail {
+      position: relative;
+    }
+
+    .col.social .mail input {
+      width: 100%;
+      height: 48px;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 0;
+      border: 1px solid rgba(148, 148, 148, 0.25);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: #191919;
+      color: #ccc;
+      padding-right: 50px;
+      outline: none;
+    }
+
+    .col.social .mail input:focus {
+      border-color: #08c1b8;
+      box-shadow: none
+    }
+
+    .col.social .mail i {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    .sub-footer {
+      background-color: #0a0a0a;
+      border-top-color: rgba(128, 128, 128, 0.08);
+      padding: 20px 0;
+    }
+
+    .sub-footer .left {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .sub-footer .left a {
+      color: #08c1b8;
+    }
+
+    .sub-footer .right {
+      display: flex;
+    }
+
+    .sub-footer .right li {
+      margin-left: 10px;
+    }
+
+    .sub-footer .right li a {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .sub-footer .right li a:hover {
+      color: #fff;
+    }
+
+
+    /* end footer */
+
+
+    /* responsive */
+    @media only screen and (max-width: 600px) {
+      #navigation {
+        padding: 10px 0;
+      }
+
+      #navigation .nav-list {
+        display: none;
+      }
+
+      #navigation .mobile-menu {
+        display: block;
+      }
+
+      #hero {
+        height: 100vh;
+        margin-top: 0;
+      }
+
+      #about {
+        flex-flow: column;
+      }
+
+      #about>div {
+        width: 100%;
+      }
+
+      #about .about-img {
+        height: 280px;
+        background-position: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #gallery .gallery-list-item .gallery-item {
+        width: 100%;
+      }
+
+      .blog-list .blog-item {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .main-footer .col {
+        width: 100%;
+        text-align: center;
+      }
+
+      .main-footer .logo-wrap a {
+        display: inline-block;
+      }
+
+      .main-footer .logo-wrap img {
+        max-height: 50px;
+      }
+
+      .main-footer .social {
+        margin-top: 20px;
+      }
+
+      .main-footer .social ul {
+        justify-content: center;
+      }
+
+      .main-footer .social ul li {
+        margin: 0 8px;
+      }
+
+      .main-footer .mail {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .sub-footer .row {
+        flex-direction: column;
+      }
+
+      .sub-footer .row .left {
+        order: 2;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .sub-footer .row .right {
+        order: 1;
+      }
+    }
+
+    /* end responsive */
+  </style>
+</head>
+
+<body>
+  <div id="header">
+
+    <!-- navigation -->
+    <div id="navigation">
+      <div class="container">
+        <div class="navigation-wrapper">
+          <div class="logo">
+            <a href="#">
+              <img src="images/logo-dark.png" alt="logo">
+            </a>
+          </div>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+            <li class="nav-item">
+              <a href="#">
+                Portfolio
+                <i class="fa-solid fa-chevron-down"></i>
+                <ul>
+                  <li>Redirect</li>
+
+                  <li>Test</li>
+                  <li>About</li>
+                </ul>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                Blog
+                <i class="fa-solid fa-chevron-down"></i>
+                <ul>
+                  <li>Redirect</li>
+
+                  <li>Test</li>
+                  <li>About</li>
+
+                </ul>
+              </a>
+            </li>
+            <li class="nav-item"><a href="#">Contact</a></li>
+            <li class="nav-item"><a href="#">More</a></li>
+            <li class="nav-item search"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+          </ul>
+
+          <div class="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end navigation -->
+
+    <!-- hero -->
+    <div id="hero">
+      <div class="hero-caption" data-aos="flip-up">
+        <h1 class="hero-title">
+          Sepia
+        </h1>
+        <h2 class="hero-subtitle">
+          Photography Portfolio
+        </h2>
+        <p class="hero-description">
+          Made for photographers, photo studios, design agencies.
+          <br>
+          Create your own unique and beautiful photography website!
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary">Buy It Now!</button>
+          <button class="btn secondary">Discovery More</button>
+        </div>
+      </div>
+    </div>
+    <!-- end hero -->
+  </div>
+
+  <div id="main">
+    <!-- about -->
+    <div id="about" data-aos="zoom-in">
+      <div class="about-img"></div>
+
+      <div class="about-content">
+        <div class="about-content-wrapper">
+          <div class="about-content-heading">
+            <h3 class="about-title">About</h3>
+            <p class="about-subtitle">Who I am and What I do</p>
+            <hr class="hr-short">
+          </div>
+
+          <div class="about-description">
+            <p>
+              Hi, my name is <strong>Margin Vegas</strong>. I am an artist and photographer. Nemo enim ipsam voluptatem
+              quia voluptas aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. Nemo enim
+              ipsam voluptatem quiatotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn primary">Read More</button>
+            <button class="btn normal">Hire Me!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end about -->
+
+    <!-- latest works -->
+    <div class="latestWork" data-aos="zoom-out-up">
+      <h3 class="latest-work-title">Latest Works</h3>
+      <div class="latest-work-subtitle">
+        My latest photo projects / <a href="#">View All</a>
+      </div>
+      <hr class="center hr-short">
+    </div>
+    <!-- end latest works -->
+
+    <!-- gallery -->
+    <div id="gallery" data-aos="fade-left">
+      <div class="gallery-list-item">
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-item-content">
+            <h4>The old man dreams</h4>
+            <div class="gallery-item-actions">
+              <p class="category">
+                Outdoor
+              </p>
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="gallery-item-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span>74</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end gallery -->
+
+    <!--customer -->
+    <div id="customer" data-aos="fade-up">
+      <div class="container">
+        <div class="customer-description">
+          <p>
+            Duis mattis quam quis quam cursus, a rutrum ante luctus. Phasellus porta ornare enim ac euismod. Nulla
+            fringilla lectus ac tincidunt viverra a accumsan <a href="#">
+              sapien mollis
+            </a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="customer-hero">
+        <div class="bg-cover-tranparent"></div>
+        <div class="customer-hero-content">
+          <div class="customer-image"></div>
+          <p>
+            "Duis vel ligula non neque varius eleifend quis id elit. Interdum et malesuada fames ac ante ipsum primis in
+            faucibus. Suspendisse lacus dui, pellentesque ut porta et, consequat sit amet."
+          </p>
+          <small>
+            - Khanh Nguyen
+          </small>
+        </div>
+      </div>
+    </div>
+    <!-- end customer -->
+
+    <div class="latestWork" data-aos="fade-up">
+      <h3 class="latest-work-title">Latest From Blog</h3>
+      <div class="latest-work-subtitle">
+        News, Reviews, Tips & Tricks
+      </div>
+      <hr class="center hr-short">
+    </div>
+
+    <!-- blogs  -->
+    <div id="blog" data-aos="fade-up">
+      <div class="container">
+        <div class="blog-list">
+          <div class="blog-item">
+            <div class="blog-item-image">
+              <img src="images/blog-3.jpeg" alt="blog">
+            </div>
+            <div class="blog-item-info">
+              <div class="blog-item-category">
+                <a href="#">Photography</a>
+              </div>
+              <h2 class="blog-item-title">
+                5 Reasons You Should Fall In Love With Photography
+              </h2>
+              <div class="blog-item-meta">
+                <span>May 26, 2017 - by Khanh Nguyen</span>
+              </div>
+              <div class="blog-item-desc">
+                Suspendisse imperdiet ante at tortor consequat consectetur. Quisque rhoncus blandit justo praesen congue
+                convallis ...
+              </div>
+              <div class="favorite">
+                <div class="favorite-comments">
+                  <i class="fa-solid fa-comment"></i> <span>20</span>
+                </div>
+                <div class="favorite-likes">
+                  <i class="fa-solid fa-heart"></i> <span>30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-item">
+            <div class="blog-item-image">
+              <img src="images/2.jpeg" alt="blog">
+            </div>
+            <div class="blog-item-info">
+              <div class="blog-item-category">
+                <a href="#">Travel</a>
+              </div>
+              <h2 class="blog-item-title">
+                5 Reasons You Should Fall In Love With Photography
+              </h2>
+              <div class="blog-item-meta">
+                <span>May 26, 2017 - by Khanh Nguyen</span>
+              </div>
+              <div class="blog-item-desc">
+                Suspendisse imperdiet ante at tortor consequat consectetur. Quisque rhoncus blandit justo praesen congue
+                convallis ...
+              </div>
+              <div class="favorite">
+                <div class="favorite-comments">
+                  <i class="fa-solid fa-comment"></i> <span>20</span>
+                </div>
+                <div class="favorite-likes">
+                  <i class="fa-solid fa-heart"></i> <span>30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-item">
+            <div class="blog-item-image">
+              <img src="images/8.jpeg" alt="blog">
+            </div>
+            <div class="blog-item-info">
+              <div class="blog-item-category">
+                <a href="#">Catalog</a>
+              </div>
+              <h2 class="blog-item-title">
+                5 Reasons You Should Fall In Love With Photography
+              </h2>
+              <div class="blog-item-meta">
+                <span>May 26, 2017 - by Khanh Nguyen</span>
+              </div>
+              <div class="blog-item-desc">
+                Suspendisse imperdiet ante at tortor consequat consectetur. Quisque rhoncus blandit justo praesen congue
+                convallis ...
+              </div>
+
+              <div class="favorite">
+                <div class="favorite-comments">
+                  <i class="fa-solid fa-comment"></i> <span>20</span>
+                </div>
+                <div class="favorite-likes">
+                  <i class="fa-solid fa-heart"></i> <span>30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end blog -->
+
+    <!-- next -->
+    <div id="next" data-aos="zoom-in-right">
+      <div class="latestWork">
+        <h3 class="latest-work-title">What Next?</h3>
+        <div class="latest-work-subtitle">
+          Interested in working with me?
+        </div>
+        <hr class="center hr-short">
+      </div>
+
+      <div class="next-content">
+        <p class="next-desc">
+          Fusce et velit sed augue rhoncus tempor. Sed ac lacinia augue, nec lacinia felis. Sed sit amet diam leo.
+          Praesent vel malesuada arcu. Donec mattis, arcu vel vehicula feugiat, sem turpis dignissim ex, eu sollicitudin
+          neque.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn normal">Read More</button>
+          <button class="btn primary">Let's Work Together</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="main-footer">
+      <div class="container">
+        <div class="row footer-wrap">
+          <div class="col logo-wrap">
+            <a href="#">
+              <img src="images/logo-light.png" alt="logo">
+            </a>
+          </div>
+          <div class="col creative">
+            <h2>- Creative Photo Studio</h2>
+            <p>
+              Sed non auctor magna. Nunc eu ultrices orci. Donec commodo ligula in massa ultricies volutpat. Fusce vel
+              cursus lectus. Cras commodo odio mi, eu cursus nibh iaculis ut.
+
+            </p>
+          </div>
+          <div class="col social">
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-google-plus-g"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-brands fa-dribbble"></i>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </li>
+            </ul>
+            <div class="mail">
+              <input type="text" placeholder="Subscribe, Enter your email address..">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row navigation">
+          <div class="left">
+            <p>© Sepia 2017 / All rights reserved</p>
+            <p>Design by: <a href="#">Themetorium</a></p>
+          </div>
+          <ul class="right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
